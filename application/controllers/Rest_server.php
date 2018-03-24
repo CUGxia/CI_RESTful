@@ -10,4 +10,10 @@ class Rest_server extends CI_Controller {
 
         $this->load->view('rest_server');
     }
+	public function get()
+	{
+		$client= new \GuzzleHttp\Client();
+		$res=$client->request('GET','http://www.baidu.com');
+		echo $res->getBody();
+	}
 }
